@@ -90,7 +90,7 @@ describe('Veriphone Api validations .......', () => {
         };
     }).timeout(200000);
 
-    it.only('Validate the error message of get veriphone details with missed phone.', async () => {
+    it('Validate the error message of get veriphone details with missed phone.', async () => {
 
         let resp = await testLib.getVeriphone({
         });
