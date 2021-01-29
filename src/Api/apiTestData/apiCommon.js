@@ -13,6 +13,8 @@ global.projectBasePath = process.cwd(),
 
   // global.veriphone_apiHost = "https://veriphone.p.rapidapi.com/verify",
   global.veriphone_apiHost = "https://veriphone.p.rapidapi.com",
+  global.germanCompanyLookupActivityCheck_apiHost = "https://german-company-lookup-and-activity-check.p.rapidapi.com",
+  
   
   global.tc_title = "",
   global.values = {},

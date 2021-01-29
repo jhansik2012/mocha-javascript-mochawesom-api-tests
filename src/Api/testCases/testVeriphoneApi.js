@@ -12,7 +12,7 @@ describe('Veriphone Api validations .......', () => {
         console.log("\n Validated the status code :  " + successCode_200);
 
         expect(successMsg).to.not.have.haveOwnProperty(respInJson.body.status);
-        console.log("\n Validated the status : "+ successMsg);
+        console.log("\n Validated the status : " + successMsg);
 
         expect(phoneNo).to.equal(respInJson.body.phone);
         console.log("\n Validated the phone number :  " + phoneNo);
@@ -65,9 +65,9 @@ describe('Veriphone Api validations .......', () => {
         };
     }).timeout(200000);
 
-     it('Validate the error message of get veriphone details with invalid phone.', async () => {
+    it('Validate the error message of get veriphone details with invalid phone.', async () => {
 
-          let resp = await testLib.getVeriphone({
+        let resp = await testLib.getVeriphone({
             phone: invalidData
         });
 
@@ -90,94 +90,68 @@ describe('Veriphone Api validations .......', () => {
         };
     }).timeout(200000);
 
-    it('Validate the error message of get veriphone details with missed phone.', async () => {
+    it.only('Validate the error message of get veriphone details with missed phone.', async () => {
 
         let resp = await testLib.getVeriphone({
-      });
+        });
 
-      respInJson = testLib.jsonparse(resp);
+        respInJson = testLib.jsonparse(resp);
 
-      expect(errorCode_400).to.equal(respInJson.statusCode);
-      console.log("\n Validated the status code :  " + errorCode_400);
+        expect(errorCode_400).to.equal(respInJson.statusCode);
+        console.log("\n Validated the status code :  " + errorCode_400);
 
-      expect(status_error).to.equal(respInJson.body.status);
-      console.log("\n Validated the error status : " + status_error);
+        expect(status_error).to.equal(respInJson.body.status);
+        console.log("\n Validated the error status : " + status_error);
 
-      expect(errorCode_400).to.equal(respInJson.body.code);
-      console.log("\n Validated the error code : " + errorCode_400);
+        expect(errorCode_400).to.equal(respInJson.body.code);
+        console.log("\n Validated the error code : " + errorCode_400);
 
-      expect(missing_phoneNo_error_type).to.equal(respInJson.body.type);
-      console.log("\n Validated the error type : " + missing_phoneNo_error_type);
+        expect(missing_phoneNo_error_type).to.equal(respInJson.body.type);
+        console.log("\n Validated the error type : " + missing_phoneNo_error_type);
 
-      expect(empty_or_missed_phoneNo_errorMsg).to.equal(respInJson.body.message);
-      console.log("\n Validated the error message : " + empty_or_missed_phoneNo_errorMsg); 
+        expect(empty_or_missed_phoneNo_errorMsg).to.equal(respInJson.body.message);
+        console.log("\n Validated the error message : " + empty_or_missed_phoneNo_errorMsg);
 
-      tc_title = 'Validated the error message of get veriphone details with missed phone.';
-      values = {
-          StatusCode: errorCode_400,
-          Missed_phoneNo_error_status: status_error,
-          Missed_phoneNo_errorCode: errorCode_400,
-          Missed_phoneNo_error_type: missing_phoneNo_error_type,
-          Missed_phoneNo_errorMsg: empty_or_missed_phoneNo_errorMsg
-      };
-  }).timeout(200000);
+        tc_title = 'Validated the error message of get veriphone details with missed phone.';
+        values = {
+            StatusCode: errorCode_400,
+            Missed_phoneNo_error_status: status_error,
+            Missed_phoneNo_errorCode: errorCode_400,
+            Missed_phoneNo_error_type: missing_phoneNo_error_type,
+            Missed_phoneNo_errorMsg: empty_or_missed_phoneNo_errorMsg
+        };
+    }).timeout(200000);
 
-  it('Validate the error message of get veriphone details with empty phone.', async () => {
+    it('Validate the error message of get veriphone details with empty phone.', async () => {
 
-    let resp = await testLib.getVeriphone({
-        phone: ''
-  });
+        let resp = await testLib.getVeriphone({
+            phone: ''
+        });
 
-  respInJson = testLib.jsonparse(resp);
+        respInJson = testLib.jsonparse(resp);
 
-  expect(errorCode_400).to.equal(respInJson.statusCode);
-  console.log("\n Validated the status code :  " + errorCode_400);
+        expect(errorCode_400).to.equal(respInJson.statusCode);
+        console.log("\n Validated the status code :  " + errorCode_400);
 
-  expect(status_error).to.equal(respInJson.body.status);
-  console.log("\n Validated the error status : " + status_error);
+        expect(status_error).to.equal(respInJson.body.status);
+        console.log("\n Validated the error status : " + status_error);
 
-  expect(errorCode_400).to.equal(respInJson.body.code);
-  console.log("\n Validated the error code : " + errorCode_400);
+        expect(errorCode_400).to.equal(respInJson.body.code);
+        console.log("\n Validated the error code : " + errorCode_400);
 
-  expect(missing_phoneNo_error_type).to.equal(respInJson.body.type);
-  console.log("\n Validated the error type : " + missing_phoneNo_error_type);
+        expect(missing_phoneNo_error_type).to.equal(respInJson.body.type);
+        console.log("\n Validated the error type : " + missing_phoneNo_error_type);
 
-  expect(empty_or_missed_phoneNo_errorMsg).to.equal(respInJson.body.message);
-  console.log("\n Validated the error message : " + empty_or_missed_phoneNo_errorMsg); 
+        expect(empty_or_missed_phoneNo_errorMsg).to.equal(respInJson.body.message);
+        console.log("\n Validated the error message : " + empty_or_missed_phoneNo_errorMsg);
 
-  tc_title = 'Validated the error message of get veriphone details with empty phone.';
-  values = {
-      StatusCode: errorCode_400,
-      Empty_phoneNo_error_status: status_error,
-      Empty_phoneNo_errorCode: errorCode_400,
-      Empty_phoneNo_error_type: missing_phoneNo_error_type,
-      Empty_phoneNo_errorMsg: empty_or_missed_phoneNo_errorMsg
-  };
-}).timeout(200000);
-
-    //-------------------------------------------------------------------------------
-
-    // it.only('Validate the success message of Get veriphone details.', async () => {
-
-    //     let resp = await testLib.getVeriphone();
-    //     respInJson = testLib.jsonparse(resp);
-    //     data = testLib.jsonparse(respInJson.data);
-
-    //     expect(successCode_200).to.equal(respInJson.statusCode);
-    //     console.log("\n Validated the status code :  " + successCode_200);
-
-    //     // expect(respInJson).to.not.have.haveOwnProperty('error');
-    //     // console.log("\n Validated the 'error' is not displayed.");
-
-    //     // var act_vendorcode = data.result.vendorCode;
-    //     // expect(ipro_vendorcode).to.equal(act_vendorcode);
-    //     // console.log("\n Validated vendorcode :  " + ipro_vendorcode);
-
-    //     tc_title = 'Validated the success message of Get veriphone details.';
-    //     values = {
-    //         statusCode: successCode_200
-    //     };
-    // }).timeout(200000);
-
-  //-----------------------------------------------------------------
+        tc_title = 'Validated the error message of get veriphone details with empty phone.';
+        values = {
+            StatusCode: errorCode_400,
+            Empty_phoneNo_error_status: status_error,
+            Empty_phoneNo_errorCode: errorCode_400,
+            Empty_phoneNo_error_type: missing_phoneNo_error_type,
+            Empty_phoneNo_errorMsg: empty_or_missed_phoneNo_errorMsg
+        };
+    }).timeout(200000);
 });

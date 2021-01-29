@@ -1,10 +1,32 @@
+var headers = {}
 export const getVeriphone = async (filters) => {
    console.log('Get veriphone... ');
-   var resp = await apiRequest(global.veriphone_apiHost,'GET', '/verify', filters);
+   headers = {
+      "x-rapidapi-key": "020a376fc7mshe7657db96f6a5bep10391cjsn667089873ac4",
+      "x-rapidapi-host": "veriphone.p.rapidapi.com",
+      "useQueryString": true
+   }
+   var resp = await apiRequest(global.veriphone_apiHost, 'GET', '/verify', headers, filters);
    console.log("-----------------------------------------------resp-----------------------------------------------\n")
    console.log(JSON.stringify(resp))
    console.log("-----------------------------------------------resp-----------------------------------------------\n")
-  return resp
+   return resp
+}
+
+export const germanCompanyLookupActivityCheck = async (params) => {
+   console.log('German Company Lookup and Activity Check... ');
+   headers = {
+      "content-type": "application/json",
+      "accept": "application/json",
+      "x-rapidapi-key": "020a376fc7mshe7657db96f6a5bep10391cjsn667089873ac4",
+      "x-rapidapi-host": "german-company-lookup-and-activity-check.p.rapidapi.com",
+      "useQueryString": true
+   }
+   var resp = await apiRequest(germanCompanyLookupActivityCheck_apiHost, 'POST', '/lookup', headers, params);
+   console.log("-----------------------------------------------resp-----------------------------------------------\n")
+   console.log(JSON.stringify(resp))
+   console.log("\n---------------------------------------------resp-----------------------------------------------\n")
+   return resp
 }
 
 //******************************************************************************** */
@@ -117,12 +139,12 @@ export const currentDate_mm_dd_yyyy = () => {
    var mm = String(today.getMonth() + 1); //January is 0!
    var yyyy = today.getFullYear();
 
-   
-   var mmChars = mm.split('');
-  var ddChars = dd.split('');
 
-  // var today = yyyy + '-' + mm + '-' + dd;
-   var today = (mmChars[1]?mm:"0"+mmChars[0]) + '/' + (ddChars[1]?dd:"0"+ddChars[0]) + '/' + yyyy;
+   var mmChars = mm.split('');
+   var ddChars = dd.split('');
+
+   // var today = yyyy + '-' + mm + '-' + dd;
+   var today = (mmChars[1] ? mm : "0" + mmChars[0]) + '/' + (ddChars[1] ? dd : "0" + ddChars[0]) + '/' + yyyy;
 
    return today
 }
@@ -138,9 +160,9 @@ export const futurePreviousDate_yyyy_mm_dd = (NumberOfdays) => {
    var yyyy = today.getFullYear();
 
    var mmChars = mm.split('');
-  var ddChars = dd.split('');
+   var ddChars = dd.split('');
 
-  // var targetDate = yyyy + '-' + mm + '-' + dd;
-   var targetDate = yyyy + '-' +(mmChars[1]?mm:"0"+mmChars[0]) + '-' + (ddChars[1]?dd:"0"+ddChars[0]);
+   // var targetDate = yyyy + '-' + mm + '-' + dd;
+   var targetDate = yyyy + '-' + (mmChars[1] ? mm : "0" + mmChars[0]) + '-' + (ddChars[1] ? dd : "0" + ddChars[0]);
    return targetDate
 }

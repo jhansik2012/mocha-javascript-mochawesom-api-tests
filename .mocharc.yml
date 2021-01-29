@@ -1,5 +1,5 @@
 file:
-  - "./src/Api/library/apiCommon"     # "./src/Api/library/apiCommon_junkdata"   ./src/Api/library/apiCommon
+  - "./src/Api/apiTestData/apiCommon"
 reporter: 'mochawesome'
 reporter-options:
   - "reportDir = ../results/ApiReports/htmlReports"
