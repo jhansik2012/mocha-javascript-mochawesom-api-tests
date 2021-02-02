@@ -17,8 +17,8 @@ describe('Veriphone Api validations .......', () => {
         expect(phoneNo).to.equal(respInJson.body.phone);
         console.log("\n Validated the phone number :  " + phoneNo);
 
-        expect(phone_valid).to.equal(respInJson.body.phone_valid);
-        console.log("\n Validated the phone_valid :  " + phone_valid);
+        expect(phone_valid_with_valid_phoneNo).to.equal(respInJson.body.phone_valid);
+        console.log("\n Validated the phone_valid :  " + phone_valid_with_valid_phoneNo);
 
         expect(phone_type).to.equal(respInJson.body.phone_type);
         console.log("\n Validated the phone_type :  " + phone_type);
@@ -52,7 +52,7 @@ describe('Veriphone Api validations .......', () => {
             StatusCode: successCode_200,
             SuccessMsg: successMsg,
             PhoneNumber: phoneNo,
-            Phone_valid: phone_valid,
+            phone_valid: phone_valid_with_valid_phoneNo,
             phone_type: phone_type,
             phone_region: phone_region,
             country: country,
@@ -76,17 +76,57 @@ describe('Veriphone Api validations .......', () => {
         expect(successCode_200).to.equal(respInJson.statusCode);
         console.log("\n Validated the status code :  " + successCode_200);
 
-        expect(invalid_phoneNo_errorMsg).to.equal(respInJson.body.error);
-        console.log("\n Validated the error message : " + invalid_phoneNo_errorMsg);
+        expect(successMsg).to.not.have.haveOwnProperty(respInJson.body.status);
+        console.log("\n Validated the status : " + successMsg);
 
-        expect(errorCode_400).to.equal(respInJson.body.errorCode);
-        console.log("\n Validated the error code : " + errorCode_400);
+        expect(invalidData).to.equal(respInJson.body.phone);
+        console.log("\n Validated the phone number :  " + invalidData);
 
-        tc_title = 'Validate the error message of get veriphone details with invalid phone.';
+        expect(phone_valid_with_invalid_phoneNo).to.equal(respInJson.body.phone_valid);
+        console.log("\n Validated the phone_valid :  " + phone_valid_with_invalid_phoneNo);
+
+        expect(phone_type_with_invalid_phoneNo).to.equal(respInJson.body.phone_type);
+        console.log("\n Validated the phone_type :  " + phone_type_with_invalid_phoneNo);
+
+        expect(phone_region_with_invalid_phoneNo).to.equal(respInJson.body.phone_region);
+        console.log("\n Validated the phone_region :  " + phone_region_with_invalid_phoneNo);
+
+        expect(country_with_invalid_phoneNo).to.equal(respInJson.body.country);
+        console.log("\n Validated the country :  " + country_with_invalid_phoneNo);
+
+        expect(country_code_with_invalid_phoneNo).to.equal(respInJson.body.country_code);
+        console.log("\n Validated the country_code :  " + country_code_with_invalid_phoneNo);
+
+        expect(country_prefix_with_invalid_phoneNo).to.equal(respInJson.body.country_prefix);
+        console.log("\n Validated the country_prefix :  " + country_prefix_with_invalid_phoneNo);
+
+        expect(international_number_with_invalid_phoneNo).to.equal(respInJson.body.international_number);
+        console.log("\n Validated the international_number :  " + international_number_with_invalid_phoneNo);
+
+        expect(local_number_with_invalid_phoneNo).to.equal(respInJson.body.local_number);
+        console.log("\n Validated the local_number :  " + local_number_with_invalid_phoneNo);
+
+        expect(e164_with_invalid_phoneNo).to.equal(respInJson.body.e164);
+        console.log("\n Validated the e164 :  " + e164_with_invalid_phoneNo);
+
+        expect(carrier_with_invalid_phoneNo).to.equal(respInJson.body.carrier);
+        console.log("\n Validated the carrier :  " + carrier_with_invalid_phoneNo);
+
+        tc_title = 'Validated the error message of get veriphone details with invalid phone.';
         values = {
-            statusCode: successCode_200,
-            invalid_phoneNo_errorMsg: invalid_phoneNo_errorMsg,
-            Invalid_phoneNo_errorCode: errorCode_400
+            StatusCode: successCode_200,
+            SuccessMsg: successMsg,
+            PhoneNumber: invalidData,
+            Phone_valid: phone_valid_with_invalid_phoneNo,
+            phone_type: phone_type_with_invalid_phoneNo,
+            phone_region: phone_region_with_invalid_phoneNo,
+            country: country_with_invalid_phoneNo,
+            country_code: country_code_with_invalid_phoneNo,
+            country_prefix: country_prefix_with_invalid_phoneNo,
+            international_number: international_number_with_invalid_phoneNo,
+            local_number: local_number_with_invalid_phoneNo,
+            e164: e164_with_invalid_phoneNo,
+            carrier: carrier_with_invalid_phoneNo
         };
     }).timeout(200000);
 

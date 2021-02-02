@@ -1,6 +1,7 @@
 {
   "phoneNo": "+4915123577723",
-  "phone_valid": true,
+  "phone_valid_with_valid_phoneNo": true,
+  "phone_valid_with_invalid_phoneNo": false,
   "phone_type": "mobile",
   "phone_region": "Germany",
   "country": "Germany",
@@ -9,5 +10,15 @@
   "international_number": "+49 1512 3577723",
   "local_number": "01512 3577723",
   "e164": "+4915123577723",
-  "carrier": "T-Mobile"
+  "carrier": "T-Mobile",
+
+  "phone_type_with_invalid_phoneNo": "unknown",
+  "phone_region_with_invalid_phoneNo": "",
+  "country_with_invalid_phoneNo": "India",
+  "country_code_with_invalid_phoneNo": "IN",
+  "country_prefix_with_invalid_phoneNo": "91",
+  "international_number_with_invalid_phoneNo": "0000",
+  "local_number_with_invalid_phoneNo": "0000",
+  "e164_with_invalid_phoneNo": "0000",
+  "carrier_with_invalid_phoneNo": ""
 }

@@ -11,7 +11,6 @@ global.projectBasePath = process.cwd(),
   global.mysql = require('mysql'),
   global.objectToCsv = require('objects-to-csv'),
 
-  // global.veriphone_apiHost = "https://veriphone.p.rapidapi.com/verify",
   global.veriphone_apiHost = "https://veriphone.p.rapidapi.com",
   global.germanCompanyLookupActivityCheck_apiHost = "https://german-company-lookup-and-activity-check.p.rapidapi.com",
   
@@ -41,7 +40,7 @@ global.projectBasePath = process.cwd(),
   global.currentDate_mm_dd_yyyy = testLib.currentDate_mm_dd_yyyy(),
   
   global.phoneNo = testConfig.phoneNo,
-  global.phone_valid = testConfig.phone_valid,
+  global.phone_valid_with_valid_phoneNo = testConfig.phone_valid_with_valid_phoneNo,
   global.phone_type = testConfig.phone_type,
   global.phone_region = testConfig.phone_region,
   global.country = testConfig.country,
@@ -50,7 +49,18 @@ global.projectBasePath = process.cwd(),
   global.international_number = testConfig.international_number,
   global.local_number = testConfig.local_number,
   global.e164 = testConfig.e164,
-  global.carrier = testConfig.carrier
+  global.carrier = testConfig.carrier,
+
+  global.phone_valid_with_invalid_phoneNo = testConfig.phone_valid_with_invalid_phoneNo,
+  global.phone_type_with_invalid_phoneNo = testConfig.phone_type_with_invalid_phoneNo,
+  global.phone_region_with_invalid_phoneNo = testConfig.phone_region_with_invalid_phoneNo,
+  global.country_with_invalid_phoneNo = testConfig.country_with_invalid_phoneNo,
+  global.country_code_with_invalid_phoneNo = testConfig.country_code_with_invalid_phoneNo,
+  global.country_prefix_with_invalid_phoneNo = testConfig.country_prefix_with_invalid_phoneNo,
+  global.international_number_with_invalid_phoneNo = testConfig.international_number_with_invalid_phoneNo,
+  global.local_number_with_invalid_phoneNo = testConfig.local_number_with_invalid_phoneNo,
+  global.e164_with_invalid_phoneNo = testConfig.e164_with_invalid_phoneNo,
+  global.carrier_with_invalid_phoneNo = testConfig.carrier_with_invalid_phoneNo
 
 afterEach("After Each test case...", function (done) {
   if (this.currentTest.state === 'passed') {
